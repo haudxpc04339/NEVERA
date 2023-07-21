@@ -1,0 +1,92 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "sp1.jpg",
+      "name": " Modern Desk Lamp",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "image": "sp2.jpg",
+      "name": "Placerat Volutpat",
+      "price": 150
+    },
+    {
+      "id": 3,
+      "image": "sp3.jpg",
+      "name": "Decorative Vase",
+      "price": 320
+    },
+    {
+      "id": 4,
+      "image": "sp4.jpg",
+      "name": "Dictum Idrisus",
+      "price": 500
+    },
+    {
+      "id": 5,
+      "image": "sp6.jpg",
+      "name": " Modern Desk Lamp",
+      "price": 280
+    },
+    {
+      "id": 6,
+      "image": "sp7.jpg",
+      "name": "Dictum Idrisus",
+      "price": 470
+    }
+  ],
+  "users": [
+    {
+      "username": "haudz",
+      "email": "dangxuanhau248@gmail.com",
+      "phone": "0377531342",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "username": "admin",
+      "email": "dangxuanhau2611@gmail.com",
+      "phone": "0377531342",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "username": "thienpham0166",
+      "email": "haudxpc04339@fpt.edu.vn",
+      "phone": "0377531342",
+      "password": "123456789",
+      "id": 3
+    },
+    {
+      "username": "admin",
+      "email": "dangxuanhau248@gmail.com",
+      "phone": "0377531342",
+      "password": "1234567",
+      "id": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Decor"
+    },
+    {
+      "id": 2,
+      "name": "Sectional"
+    },
+    {
+      "id": 3,
+      "name": "Boolshevel"
+    },
+    {
+      "id": 4,
+      "name": "Furniture"
+    },
+    {
+      "id": 5,
+      "name": "Window Treatments"
+    }
+  ]
+}

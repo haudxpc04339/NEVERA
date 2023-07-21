@@ -1,0 +1,261 @@
+
+    <div class="container-fluid header_top">
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- <h4 class="header_top_left">Hotline: 0377531342</h4> -->
+            </div>
+            <div class="col-sm-6">
+                <div class="header__top__right">
+                    <div class="header__top__links">
+                        <ul class="list-unstyled">
+                            <li>
+                                 <a data-bs-toggle="modal" data-bs-target="#login" class="btn-sign" role="button" ng-show="user==null">Sign in</a>
+                            </li>
+                            <li class=""ng-hide="user==null">
+                                <a class="" href="#">{{user.username}}</a>
+                                <ul class="submenu">
+                                  <li><a class="" href="#" data-bs-toggle="modal" data-bs-target="#changePass" role="button">Change password</a></li>
+                                  <li><a class="" href="#" data-bs-toggle="modal" data-bs-target="#updateInfo" role="button">Update account</a></li>
+                                  <li><a class="" href="#" ng-click="logout()">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">FAQs</a>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+                <!-- Login -->
+                <div class="modal" id="login">
+                    <div class="modal-dialog  modal-md">
+                      <div class="modal-content">
+                  
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">LOGIN OR CREATE AN ACCOUNT</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form name="loginForm" novalidate ng-submit="login()" ng-controller="loginFormController">
+                        <div class="modal-body">
+                                <div class="row">
+                                   <div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$dirty, 'has-success': loginForm.email.$valid }">
+                                       <label for="input-email" class="control-label">Email Address</label>
+                                       <input type="email" class="form-control" name="email" ng-model="email" required>
+                                       <span class="help-block" ng-if="loginForm.email.$invalid && loginForm.email.$dirty">Please Enter a valid email address</span>
+                                   </div>
+                                </div>
+                                <div class="row">
+                                   <div class="form-group" class="form-group" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$dirty, 'has-success': loginForm.password.$valid}">
+                                       <label for="input-password">Password</label>
+                                       <input type="password" class="form-control" name="password" ng-model="password" ng-minLength="6" required>   
+                                       <p class="help-block" ng-if="loginForm.password.$invalid && loginForm.password.$dirty">Please Enter at least 6 characters</p>                                     
+                                    </div>
+                                       <a class="forgotten" href="">Forgotten Password</a>
+                                </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button class="btn-login" type="submit" >Login</button>
+                            <button class="btn-account" type="button" data-bs-toggle="modal" data-bs-target="#resgister">Create an account</button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Regin -->
+                  
+                <div class="modal" id="resgister" ng-controller="registerFormController">
+                    <div class="modal-dialog  modal-md">
+                      <div class="modal-content">
+                  
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Resgister account</h4>
+                         
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form name="updateInfo" ng-submit="register()" novalidate>
+                        <div class="modal-body">
+                                <div class="row">
+                                   <div class="form-group" ng-class="{ 'has-error' : updateInfo.username.$invalid && (updateInfo.username.$dirty || submitted)}">
+                                       <label><span class="span">*</span> User Name</label>
+                                       <input type="text" class="form-control"  name="username" ng-model="username" required>   
+                                       <span ng-show="updateInfo.username.$error.required && (updateInfo.userame.$dirty || submitted)" class="help-block">You user name is required.</span>                                    
+                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group"  ng-class="{ 'has-error' : updateInfo.email.$invalid && (updateInfo.email.$dirty || submitted)}">
+                                        <label for="input-password"><span class="span">*</span>  Email</label>
+                                        <input type="email" class="form-control" name="email" ng-model="email" required> 
+                                        <span ng-show="updateInfo.email.$error.required && (updateInfo.email.$dirty || submitted)" class="help-block">Email is required.</span>
+                                        <span ng-show="updateInfo.email.$error.email && (updateInfo.email.$dirty || submitted)" class="help-block">Enter a valid email.</span>                                       
+                                    </div>    
+                                 </div>
+                                 <div class="row">
+                                    <div class="form-group" ng-class="{ 'has-error' : updateInfo.phone.$invalid && (updateInfo.phone.$dirty || submitted)}">
+                                        <label for="input-password"> <span class="span">*</span> Phone</label>
+                                        <input type="tel" class="form-control" name="phone"  ng-model="phone" required>    
+                                        <span ng-show="updateInfo.phone.$error.required && (updateInfo.phone.$dirty || submitted)" class="help-block"> You phone is required.</span>
+                                        <span ng-show="updateInfo.phone.$error.phone && (updateInfo.phone.$dirty || submitted)" class="help-block">Enter a valid phone.</span>                                    
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="form-group" ng-class="{ 'has-error' : updateInfo.password.$invalid && (updateInfo.password.$dirty || submitted)}">
+                                        <label for="input-password"><span class="span">*</span> Password</label>
+                                        <input type="password" class="form-control"  name="password" ng-model="password" required min="6">  
+                                        <span ng-show="updateInfo.password.$error.required && (updateInfo.password.$dirty || submitted)" class="help-block">Your password is required.</span>                                      
+                                    </div>
+                                       
+                                 </div>
+                                 <div class="row">
+                                    <div class="form-group" ng-class="{ 'has-error' : updateInfo.confirmPassword.$invalid && (updateInfo.confirmPassword.$dirty || submitted)}">
+                                        <label for="input-password"><span class="span">*</span> Password Confirm</label>
+                                        <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" ng-compare="password" required min="6">   
+                                        <span ng-show="updateInfo.confirmPassword.$error.required && (updateInfo.confirmPassword.$dirty || submitted)" class="help-block">Your confirm password is required.</p>
+                                             
+                                    </div>
+                                 </div>
+                          </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn-login">Register</button>
+                            
+                        </div>
+                    </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="menu">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="images/logo.png" alt=""></a> 
+                </div>
+            </div> 
+            <div class="col-sm-6 col-md-6">
+                <nav class="navbar navbar-expand-sm justify-content-center menu " id="navbar">
+                    <ul class="navbar-nav header__menu">
+                        <li class="active nav-item header__menu__item"><a class="nav-link header__menu__link" href="#!home">Home</a></li>
+                        <li class="nav-item header__menu__item"><a class="nav-link header__menu__link" href="#!about">About Us</a></li>
+                        <li class="nav-item header__menu__item"><a class="nav-link header__menu__link" href="#!shop">Shop</a></li>
+                        <li class="nav-item header__menu__item"><a class="nav-link header__menu__link" href="#!blog">Blog</a></li>
+                        <li class="nav-item header__menu__item"><a class="nav-link header__menu__link" href="#!contact">Contact</a></li>
+                       
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <div class="header__nav__option">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="login.html" class="pull-right"><img src="images/icon/heart.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="shopping-cart.html" class="pull-right"><img src="images/icon/cart.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" class="search-switch pull-right"><img src="images/icon/search.png" alt=""></a>
+                        </li>
+                    </ul>
+            </div>
+            <!-- The Modal -->
+            <div class="modal fade" id="changePass">
+                <div class="modal-dialog">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Change Password</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <form name="changPassword" autocomplete="off" ng-controller="changePassFormController" ng-submit="change()">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label><span class="span">*</span> Password</label>
+                                <input type="password" class="form-control" ng-model="password" name="password"/>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="form-group">
+                                <label><span class="span">*</span> New Password</label>
+                                <input type="password" class="form-control" ng-model="newPassword" name="newPassword"/>
+                            </div>
+                        </div>  
+                         <div class="row">
+                            <div class="form-group">
+                                <label for="input-password"><span class="span">*</span>New Password Confirm</label>
+                                <input type="password" class="form-control" name="confirmNewPassword" ng-model="confirmNewPassword" min="6" required>   
+                                 
+                            </div>
+                         </div>
+                         <input type="hidden" ng-model="username">
+                         <input type="hidden" ng-model="email">
+                         <input type="hidden" ng-model="phone">
+                   
+                    </div>
+            
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="submit" class="btn-login">Submit</button>
+                    </div>
+                </form>
+                </div>
+                </div>
+            </div>
+            <!-- Update Info -->
+             <!-- The Modal -->
+             <div class="modal fade" id="updateInfo">
+                <div class="modal-dialog">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Update Account</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <form name="updateInfo" autocomplete="off" ng-controller="infoFormController" ng-submit="update()">
+                        <div class="modal-body">
+                            <div class="row">
+                               <div class="form-group" >
+                                   <label><span class="span">*</span> User Name</label>
+                                   <input type="text" class="form-control"  name="username" ng-model="username" required>   
+                                  
+                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group"  >
+                                    <label for="input-password"><span class="span">*</span>  Email</label>
+                                    <input type="email" class="form-control" name="email" ng-model="email" required> 
+                                    
+                                </div>    
+                             </div>
+                             <div class="row">
+                                <div class="form-group" >
+                                    <label for="input-password"> <span class="span">*</span> Phone</label>
+                                    <input type="tel" class="form-control" name="phone"  ng-model="phone" required>    
+                                   
+                                </div>
+                             </div>
+                             <input type="hidden" ng-model="password">
+                            
+                      </div>
+            
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="submit" class="btn-login">Submit</button>
+                    </div>
+                </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>

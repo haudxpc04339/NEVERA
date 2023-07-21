@@ -1,0 +1,216 @@
+
+    
+       <section id="content">
+        <section class="breadcrumb">
+            <div class="container breadcrumb-option">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4>Shop</h4>
+                            <div class="breadcrumb__links">
+                                <a href="./index.html">Home</a>
+                                <span>Shop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <div class="row">
+                <aside class="col-sm-12 col-md-3 colum-left">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"><i class="fa-solid fa-magnifying-glass"></i></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-bs-toggle="collapse"  href="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories" ng-controller="listCategories">
+                                            <ul class="nice-scroll">
+                                                <li ng-repeat="c in categories">
+                                                    <a href="#">{{c.name}} (20)</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-bs-toggle="collapse" href="#collapseTwo">Filter Price</a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <ul>
+                                                <li><a href="#">$0.00 - $50.00</a></li>
+                                                <li><a href="#">$50.00 - $100.00</a></li>
+                                                <li><a href="#">$100.00 - $150.00</a></li>
+                                                <li><a href="#">$150.00 - $200.00</a></li>
+                                                <li><a href="#">$200.00 - $250.00</a></li>
+                                                <li><a href="#">250.00+</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-sm-12 col-md-9">
+                    <div class="toolbar">
+                        <div class="col-sm-2 toolbar-right">
+                            <select name="" id="input-sort" class="form-control">
+                                <option value="" selected="selected">Sort by: Default <i class="fa-solid fa-arrow-down"></i></option>
+                                <option value="">By :Name (A-Z)</option>
+                                <option value="">By :Name (Z-A)</option>
+                                <option value="">By :Price (Low > High)</option>
+                                <option value="">By :Price (Low > High)</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 toolbar-right">
+                            <select name="" id="input-limit" class="form-control">
+                                <option value="" selected="selected">Show: 9</option>
+                                <option value="">Show: 25</option>
+                                <option value="">Show: 50</option>
+                                <option value="">Show: 75</option>
+                                <option value="">Show: 100</option>
+                            </select>
+                        </div>
+                    </div>
+                    <section class="product-container main-row">
+                      
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                        <div class="row row-container d-flex justify-content-between"  ng-controller="list">
+                                            <div class="col-md-4 p-2" ng-repeat="product in products">
+                                                <div class="product-cart">
+                                                    <div class="product-img">
+                                                        <img src="images/products/{{product.image}}" width="280" height="340" class="image">
+                                                        <span class="discount-tag">New</span>
+                                                        <div class="overlay__shop"><a href="#!detailproduct"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                    </div>
+                                                    <div class="product-info text-center">
+                                                      <h3 class="product-name">
+                                                         {{product.name}}
+                                                      </h3>
+                                                      <a href="#" class="add-cart">+ Add To Cart</a>
+                                                      <p class="price">${{product.price}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-4 p-2">
+                                                <div class="product-cart">
+                                                    <div class="product-img">
+                                                        <img src="images/products/sp2.jpg" width="280" height="340">
+                                                        <span class="discount-tag">New</span>
+                                                        <div class="overlay__shop"><a href="detailproduct.html"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                    </div>
+                                                    <div class="product-info text-center">
+                                                      <h3 class="product-name">
+                                                         Placerat Volutpat
+                                                      </h3>
+                                                      <a href="#" class="add-cart">+ Add To Cart</a>
+                                                      <p class="price">$1,000.00</p>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="col-md-4 p-2">
+                                                <div class="product-cart">
+                                                    <div class="product-img">
+                                                        <img src="images/products/sp3.jpg" width="280" height="340">
+                                                        <span class="discount-tag">New</span>
+                                                        <div class="overlay__shop"><a href="detailproduct.html"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                    </div>
+                                                    <div class="product-info text-center">
+                                                      <h3 class="product-name">
+                                                        Decorative Vase
+                                                      </h3>
+                                                      <a href="#" class="add-cart">+ Add To Cart</a>
+                                                      <p class="price">$100.00</p>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        <!-- </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                            <div class="row row-container d-flex justify-content-between">
+                                                <div class="col-md-4 p-2">
+                                                    <div class="product-cart">
+                                                        <div class="product-img">
+                                                            <img src="images/products/sp4.jpg" width="280" height="340">
+                                                            <span class="discount-tag">New</span>
+                                                            <div class="overlay__shop"><a href="detailproduct.html"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                        </div>
+                                                        <div class="product-info text-center">
+                                                          <h3 class="product-name">
+                                                            Modern Desk Lamp
+                                                          </h3>
+                                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                                          <p class="price">$100.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 p-2">
+                                                    <div class="product-cart">
+                                                        <div class="product-img">
+                                                            <img src="images/products/sp6.jpg" width="280" height="340">
+                                                            <span class="discount-tag">New</span>
+                                                            <div class="overlay__shop"><a href="detailproduct.html"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                        </div>
+                                                        <div class="product-info text-center">
+                                                          <h3 class="product-name">
+                                                            Placerat Volutpat
+                                                          </h3>
+                                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                                          <p class="price">$1,000.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 p-2">
+                                                    <div class="product-cart">
+                                                        <div class="product-img">
+                                                            <img src="images/products/sp7.jpg" width="280" height="340">
+                                                            <span class="discount-tag">New</span>
+                                                            <div class="overlay__shop"><a href="detailproduct.html"><i class="fa-solid fa-eye"></i> Quick View</a></div>
+                                                        </div>
+                                                        <div class="product-info text-center">
+                                                          <h3 class="product-name">
+                                                            Decorative Vase
+                                                          </h3>
+                                                          <a href="#" class="add-cart">+ Add To Cart</a>
+                                                          <p class="price">$100.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="row toolbar2">
+                                        <div class="col-sm-6 ">
+                                            <ul class="pagination">
+                                                <li class="page-item active"><a class="page-link active" href="">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                                                <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-reply-all"></i></a></li>
+                                              </ul>
+                                        </div>
+                                        <div class="col-sm-6">
+                                           <p class="pull-right"> Showing 1 to 9 of 16 (2 Pages)</p>
+                                        </div>
+                                    </div>
+                        </div>
+            </div>
+       </section>
+  
+    
+       
